@@ -56,10 +56,9 @@ $query = execute();
           	<div class="row mt">
           		<div class="col-lg-12">
                   <div class="form-panel">
-                      <?php if($successmsg!=null)
-                      {?>
+                      <?php if($successmsg!=null){?>
                       <div class="alert alert-success alert-dismissable">
-                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Well done!</b> <?php echo htmlentities($successmsg);?></div>
                       <?php }?>
                       <?php if($errormsg)
@@ -72,8 +71,8 @@ $query = execute();
        $query1 = $dbh->prepare($sql1);
        $query1->execute();
        $results = $query1->fetchAll(PDO::FETCH_OBJ); 
-  foreach($results as $result) {?>                     
-  <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($result->fullName);?>'s Profile</h4>
+      foreach($results as $result) {?>                     
+    <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($result->fullName);?>'s Profile</h4>
     <h5><b>Last Updated at :</b>&nbsp;&nbsp;<?php echo htmlentities($result->updationDate);?></h5>
     <form class="form-horizontal style-form" method="post" name="profile" >
     <div class="form-group">
