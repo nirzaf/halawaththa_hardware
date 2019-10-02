@@ -116,14 +116,11 @@ $query = execute();
               </form>
               </div>
               </div>
-              </div>             
-                          
-          	
-          	
+              </div>                     	
 		</section>
-      </section>
+    </section>
     <?php include("includes/footer.php");?>
-  </section>
+    </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
