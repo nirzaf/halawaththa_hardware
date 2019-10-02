@@ -15,7 +15,7 @@ else{
       $query->execute();
       $results = $query->fetchAll(PDO::FETCH_OBJ);
       foreach($results as $result) {
-          $_SESSION['image'] = $result;
+          $_SESSION['image'] = $result->image;
       }
   }
       ?>
@@ -38,9 +38,9 @@ else{
     <link href="assets/css/table-responsive.css" rel="stylesheet">
   </head>
   <body>
-<section id="container" >
-<?php include("includes/header.php");?>
-<?php include("includes/sidebar.php");?>
+    <section id="container" >
+    <?php include("includes/header.php");?>
+    <?php include("includes/sidebar.php");?>
         <section id="main-content">
           <section class="wrapper">
           	<h3>View Products by Id </h3>
@@ -53,7 +53,7 @@ else{
     <div class="col-sm-4" style="padding-left:170px;">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div> 
-    <img id="blah" width="600" height="400" src="<?php if($_SESSION['image']!==null) {'pr_images/'.$_SESSION['image'];} else {'img/tp.png';}?>" alt="" />
+    <img id="blah" width="600" height="400" src="<?php if($_SESSION['image']) {echo 'pr_images/'.$_SESSION['image'];} else {echo 'img/tp.png';}?>" alt="Image Not Found" />
   </div>
   </form>               
         </div><!-- /col-lg-4 -->			
