@@ -1,12 +1,22 @@
 <?php 
 session_start();
-error_reporting(0);
+//error_reporting(0);
 include('includes/config.php');
 if(strlen($_SESSION['login'])==0)
   { 
 header('location:index.php');
 }
 else{
+    if (isset($_POST['submit'])) {
+        $id = $_POST['id'];
+        $sql = "SELECT image FROM tblproducts WHERE id=:id";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query = $execute();
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        foreach ($results as $result) {
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,13 +48,12 @@ else{
               <div class="content-panel">
   <form action="" method="POST">
   Enter Product Id: 
-    <input type="text" name="search_entered" placeholder="Enter product id"/> <br><br>
+    <input type="text" name="id" placeholder="Enter product id"/> <br><br>
     <div class="col-sm-4">
-    <input type='file' name="image" id="image" onchange="readURL(this);"/>
-    <img id="blah" width="600" height="400" src="img/tp.png" alt="" />
-    </div>
-    <div class="col-sm-4" style="padding-left:190px; padding-top:20px">
+    <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
+    </div>
+    <img id="blah" width="600" height="400" src="<?php if($result->image!=null){'pr_images/'.$result->image;}else{'img/tp.png';}?>" alt="" />
     </div>
   </form>               
         </div><!-- /content-panel -->
@@ -65,4 +74,5 @@ else{
     <!--script for this page-->
   </body>
 </html>
-<?php } ?>
+<?php 
+} ?>
