@@ -14,7 +14,7 @@ else{
       $query->bindParam(':id', $id, PDO::PARAM_INT);
       $query->execute();
       $results = $query->fetchAll(PDO::FETCH_OBJ);
-      foreach ($results as $result) {
+      foreach($results as $result) {
           $_SESSION['image'] = $result;
       }
   }
