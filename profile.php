@@ -67,11 +67,11 @@ $query = execute();
                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Oh snap!</b> </b> <?php echo htmlentities($errormsg);?></div>
                       <?php }?>
-      <?php $slq1= "select * from users where userEmail='".$_SESSION['login']."'";
-       $query1 = $dbh->prepare($sql1);
-       $query1->execute();
-       $results = $query1->fetchAll(PDO::FETCH_OBJ); 
-      foreach($results as $result) {?>                     
+    <?php $sql1= "select * from users where userEmail='".$_SESSION['login']."'";
+    $query1 = $dbh->prepare($sql1);
+    $query1->execute();
+    $results = $query1->fetchAll(PDO::FETCH_OBJ); 
+    foreach($results as $result) {?>                     
     <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($result->fullName);?>'s Profile</h4>
     <h5><b>Last Updated at :</b>&nbsp;&nbsp;<?php echo htmlentities($result->updationDate);?></h5>
     <form class="form-horizontal style-form" method="post" name="profile" >

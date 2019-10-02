@@ -14,5 +14,5 @@ if ($query->rowCount()>0) {
 }
 ?>
 <script language="javascript">
-document.location="../index.html";
+document.location="index.php";
 </script>
