@@ -114,13 +114,6 @@ $query = execute();
 </div>
 </div>
 
-<label class="col-sm-2 col-sm-2 control-label">Reg Date </label>
-<div class="col-sm-4">
-<input type="text" name="regdate" required="required" value="<?php echo htmlentities($row['regDate']);?>" class="form-control" readonly>
- </div>
-</div>
-
-
 <div class="form-group">
 <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
 <div class="col-sm-4">
