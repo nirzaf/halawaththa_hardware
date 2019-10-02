@@ -17,7 +17,7 @@ else{
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>CMS | Complaint History</title>
+    <title>IMS | Inventory Management System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -31,79 +31,33 @@ else{
     <link href="assets/css/table-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
-
   <body>
-
-  <section id="container" >
+<section id="container" >
 <?php include("includes/header.php");?>
 <?php include("includes/sidebar.php");?>
 
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i>Your Complaint Hstory</h3>
+          	<h3>View Products by Id </h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
                       <div class="content-panel">
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr style="text-align: center">
-                                  <th style="text-align: center">Complaint Number</th>
-                                  <th style="text-align: center">Reg Date</th>
-                                  <th style="text-align: center">last Updation date</th>
-                                  <th style="text-align: center">Status</th>
-                                  <th style="text-align: center">Action</th>
-                                  
-                              </tr>
-                              </thead>
-                              <tbody>
-  <?php $query=mysqli_query($con,"select * from tblcomplaints where userId='".$_SESSION['id']."'");
-while($row=mysqli_fetch_array($query))
-{
-  ?>
-                              <tr>
-                                  <td align="center"><?php echo htmlentities($row['complaintNumber']);?></td>
-                                  <td align="center"><?php echo htmlentities($row['regDate']);?></td>
-                                 <td align="center"><?php echo  htmlentities($row['lastUpdationDate']);
+                      <form action="" method="POST">
+Enter Product Id: 
+<input type="text" name="search_entered" value=''/> <br><br>
+<div class="col-sm-10" style="padding-left:190px; padding-top:20px">
+<input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
+</div>
+</form>
 
-                                 ?></td>
-                                  <td align="center"><?php 
-                                    $status=$row['status'];
-                                    if($status=="" or $status=="NULL")
-                                    { ?>
-                                      <button type="button" class="btn btn-theme04">Not Process Yet</button>
-                                   <?php }
- if($status=="in process"){ ?>
-<button type="button" class="btn btn-warning">In Process</button>
-<?php }
-if($status=="closed") {
-?>
-<button type="button" class="btn btn-success">Closed</button>
-<?php } ?>
-                                   <td align="center">
-                                   <a href="complaint-details.php?cid=<?php echo htmlentities($row['complaintNumber']);?>">
-<button type="button" class="btn btn-primary">View Details</button></a>
-                                   </td>
-                                </tr>
-                              <?php } ?>
-                            
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
+                      </div><!-- /content-panel -->
                </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
-		  	
-		  	
-
 		</section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
-<?php include("includes/footer.php");?>
+  </section><!-- /MAIN CONTENT -->
+
+  <?php include("includes/footer.php");?>
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
