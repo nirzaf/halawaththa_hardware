@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 	$query->execute();
 	if($query>0)
 	{
-		$extra="dashboard.php";//
+		$extra="dashboard.php";
 		$_SESSION['login']=$_POST['username'];
 		$_SESSION['id']=$num['id'];
 		$host=$_SERVER['HTTP_HOST'];
@@ -51,26 +51,9 @@ if(isset($_POST['submit']))
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-<script type="text/javascript">
-function valid()
-{
- if(document.forgot.password.value!= document.forgot.confirmpassword.value)
-{
-alert("Password and Confirm Password Field do not match  !!");
-document.forgot.confirmpassword.focus();
-return false;
-}
-return true;
-}
-</script>
   </head>
 
   <body>
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-
 	  <div id="login-page">
 	  	<div class="container">
 	  		<h3 align="center" style="color:#ffff">Inventory Management System</h3>
