@@ -35,6 +35,7 @@ else{ ?>
 
   <body>
 <section id="container" >
+<?php include("includes/config.php");?>
 <?php include("includes/header.php");?>
 <?php include("includes/sidebar.php");?>
       <section id="main-content">
@@ -48,8 +49,10 @@ else{ ?>
                   		<div class="box1">
 					  			    <span class="li_news"></span>
                                 <?php                   
-$rt = mysqli_query($con,"SELECT * FROM tblcomplaints where userId='".$_SESSION['id']."' and status is null");
-$num1 = mysqli_num_rows($rt);
+$rt = "SELECT * FROM tblproducts where userId='".$_SESSION['id']."'";
+$query = $dbh->prepare($rt);
+$query->execute();
+$num1 = $query->rowCount();
 {?>
 					  			<h3><?php echo htmlentities($num1);?></h3>
                   			</div>
@@ -69,14 +72,10 @@ $num1 = mysqli_num_rows($rt);
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/jquery.sparkline.js"></script>
-
-
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
-    
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
     <!--script for this page-->
     <script src="assets/js/sparkline-chart.js"></script>    
 	<script src="assets/js/zabuto_calendar.js"></script>	

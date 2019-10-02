@@ -30,16 +30,6 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Account Setting</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="profile.php">Profile</a></li>
-                          <li><a  href="change-password.php">Change Password</a></li>                       
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
                       <a href="add-record.php" >
                           <i class="fa fa-book"></i>
                           <span>Add Product</span>
@@ -51,7 +41,19 @@
                           <i class="fa fa-tasks"></i>
                           <span>Retreive Product Info</span>
                       </a>                      
-                  </li>             
+                  </li>
+                  <li class="sub-menu">
+                      <a href="profile.php" >
+                          <i class="fa fa-user"></i>
+                          <span>Profile</span>
+                      </a>
+                    </li>
+                  <li class="sub-menu">
+                      <a href="change-password.php" >
+                          <i class="fa fa-lock"></i>
+                          <span>Change Password</span>
+                      </a>
+                    </li>             
               </ul>
               <!-- sidebar menu end-->
           </div>
