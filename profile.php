@@ -106,27 +106,17 @@ $query = execute();
     <?php endif;?>
     </div>
     </div>
+    <?php } ?>
 
-
-
-
-
-
-
-
-
-<?php } ?>
-
-                          <div class="form-group">
-                           <div class="col-sm-10" style="padding-left:25% ">
-<button type="submit" name="submit" class="btn btn-primary">Submit</button>
-</div>
-</div>
-
-                          </form>
-                          </div>
-                          </div>
-                          </div>
+              <div class="form-group">
+              <div class="col-sm-10" style="padding-left:25% ">
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+              </div>
+              </div>
+              </form>
+              </div>
+              </div>
+              </div>             
                           
           	
           	
