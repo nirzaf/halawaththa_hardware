@@ -7,16 +7,6 @@ if(strlen($_SESSION['login'])==0)
 header('location:index.php');
 }
 else{
-    if (isset($_POST['submit'])) {
-        $id = $_POST['id'];
-        $sql = "SELECT image FROM tblproducts WHERE id=:id";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-        $query = $execute();
-        $results = $query->fetchAll(PDO::FETCH_OBJ);
-        foreach ($results as $result) {
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,15 +36,30 @@ else{
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
               <div class="content-panel">
-  <form action="" method="POST">
+  <form action="view-products.php" method="POST">
   Enter Product Id: 
     <input type="text" name="id" placeholder="Enter product id"/> <br><br>
     <div class="col-sm-4">
     <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div>
-    <img id="blah" width="600" height="400" src="<?php if($result->image!=null){'pr_images/'.$result->image;}else{'img/tp.png';}?>" alt="" />
-    </div>
+    <?php 
+        if (isset($_POST['submit'])) {
+            $id = $_POST['id'];
+            $sql = "SELECT image FROM tblproducts WHERE id=:id";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':id', $id, PDO::PARAM_INT);
+            $query = $execute();
+            $results = $query->fetchAll(PDO::FETCH_OBJ);
+            foreach ($results as $result) {?>
+    <img id="blah" width="600" height="400" src="<?php if ($result->image!=null) {
+                'pr_images/'.$result->image;
+            } else {
+                'img/tp.png';
+            } ?>" alt="" />
+        <?php }
+        } ?>
+  </div>
   </form>               
         </div><!-- /content-panel -->
         </div><!-- /col-lg-4 -->			
