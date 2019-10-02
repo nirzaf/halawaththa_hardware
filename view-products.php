@@ -16,21 +16,15 @@ else{
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
     <title>IMS | Inventory Management System</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />        
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
     <link href="assets/css/table-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   </head>
   <body>
 <section id="container" >
@@ -46,10 +40,10 @@ else{
   Enter Product Id: 
     <input type="text" name="search_entered" value=''/> <br><br>
     <div class="col-sm-4">
-        <input type='file' name="image" id="image" onchange="readURL(this);"/>
-        <img id="blah" width="600" height="400" src="img/tp.png" alt="" />
+    <input type='file' name="image" id="image" onchange="readURL(this);"/>
+    <img id="blah" width="600" height="400" src="img/tp.png" alt="" />
     </div>
-    <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
+    <div class="col-sm-4" style="padding-left:190px; padding-top:20px">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div>
   </form>               
