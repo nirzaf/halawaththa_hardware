@@ -1,34 +1,57 @@
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 include('includes/config.php');
 if(strlen($_SESSION['login'])==0)
   { 
-header('location:index.php');
-}
-else{
+    header('location:index.php');
+  }
+  else
+  {
+  if(isset($_POST['submit']))
+  {
+  try 
+    {
+      $id=intval($_POST['pid']);
+      $uid = rand(100, 1000000).time();
+     // $uid=$_SESSION['id'];
+      $filename = $_FILES["image"]["name"]; // Get the name of the file (including file extension).
+      $allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
+      $max_filesize = 10485760; // Maximum filesize in BYTES (currently 10.0 MB).
+      $upload_path = 'pr_images/'; // The place the files will be uploaded to (currently a 'files' directory).
+      $ext = substr($filename, strpos($filename, '.'), strlen($filename)-1); // Get the extension from the filename.
+ 
+    // Now check the filesize, if it is too large then DIE and inform the user.
+      if ($filename != null && filesize($_FILES["image"]["tmp_name"]) > $max_filesize) {
+          die('The Image you attempted to upload is too large.');
+      }
 
-if(isset($_POST['submit']))
-{
-$uid=$_SESSION['id'];
-$category=$_POST['category'];
-$subcat=$_POST['subcategory'];
-$complaintype=$_POST['complaintype'];
-$state=$_POST['state'];
-$noc=$_POST['noc'];
-$complaintdetials=$_POST['complaindetails'];
-$compfile=$_FILES["compfile"]["name"];
-
-move_uploaded_file($_FILES["compfile"]["tmp_name"],"complaintdocs/".$_FILES["compfile"]["name"]);
-$query=mysqli_query($con,"insert into tblcomplaints(userId,category,subcategory,complaintType,state,noc,complaintDetails,complaintFile) values('$uid','$category','$subcat','$complaintype','$state','$noc','$complaintdetials','$compfile')");
-// code for show complaint number
-$sql=mysqli_query($con,"select complaintNumber from tblcomplaints  order by complaintNumber desc limit 1");
-while($row=mysqli_fetch_array($sql))
-{
- $cmpn=$row['complaintNumber'];
-}
-$complainno=$cmpn;
-echo '<script> alert("Your complain has been successfully filled and your complaintno is  "+"'.$complainno.'")</script>';
+      // Check if we can upload to the specified path, if not DIE and inform the user.
+      if (!is_writable($upload_path)) {
+          die('You cannot upload to the specified directory, please CHMOD it to 777.');
+      }
+    
+      $filename = rand(100, 1000000).time().$ext;
+       // this will give the file current time so avoid files having the same name
+      move_uploaded_file($_FILES["image"]["tmp_name"], $upload_path . $filename);
+      
+      $sql= "insert into tblproducts (id,userId,image) values(':id',':uid',':img')";
+      $query = $dbh->prepare($sql);
+      $query->bindParam(':id', $id, PDO::PARAM_INT);
+      $query->bindParam(':uid', $uid, PDO::PARAM_STR);
+      $query->bindParam(':img', $filename, PDO::PARAM_STR);
+      $query->execute();
+      // code for show last added id number
+      $lastInsertId = $dbh->lastInsertId();
+      if ($lastInsertId) {
+          echo '<script> alert("Your product has been successfully added with id number "+"'.$lastInsertId.'")</script>';
+      } else {
+          echo "<script>alert('Oops! Please try again')</script>";
+      }
+  }catch(PDOException $ex)
+  {
+    throw $ex;
+  }
 }
 ?>
 
@@ -40,9 +63,7 @@ echo '<script> alert("Your complain has been successfully filled and your compla
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
     <title>CMS | User Register Complaint</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -55,32 +76,13 @@ echo '<script> alert("Your complain has been successfully filled and your compla
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#blah').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
     </script>
-
-    <script>
-
-function getCat(val) {
-  //alert('val');
-
-  $.ajax({
-  type: "POST",
-  url: "getsubcat.php",
-  data:'catid='+val,
-  success: function(data){
-    $("#subcategory").html(data);
-    
-  }
-  });
-  }
-  </script>
   </head>
   <body>
   <section id="container" >
@@ -91,7 +93,7 @@ function getCat(val) {
           	<h3><i class="fa fa-angle-right"></i> Add Product</h3>
           	
             <!-- BASIC FORM ELELEMNTS -->
-<form runat="server">
+<form role="form" method="POST" action="add-record.php" enctype="multipart/form-data">
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">Product Id</label>
     <div class="col-sm-4">
@@ -102,7 +104,7 @@ function getCat(val) {
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">Product Image</label>
     <div class="col-sm-4">
-    <input type='file' onchange="readURL(this);" name="image"/>
+    <input type='file' name="image" id="image" onchange="readURL(this);"/>
 		<img id="blah" width="600" height="400" src="img/tp.png" alt="" />
     </div>
     </div>
