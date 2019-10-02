@@ -413,7 +413,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffd777;
+    background: #1c180e;
     border-bottom: 1px solid #c9aa5f;
 }
 
@@ -644,7 +644,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .full-width .dropdown-menu.extended.logout > li > a:hover {
     background: none !important;
-    color: #50c8ea !important;
+    color: #9e0800 !important;
 }
 
 .dropdown-menu.extended.logout > li > a:hover {
@@ -2216,7 +2216,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #120101;
     color: #fff;
     padding: 10px 0;
 }

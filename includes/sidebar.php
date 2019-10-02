@@ -47,7 +47,7 @@
                   <li class="sub-menu">
                       <a href="view-products.php" >
                           <i class="fa fa-tasks"></i>
-                          <span>Complaint History</span>
+                          <span>Retreive Product Info</span>
                       </a>                      
                   </li>             
               </ul>

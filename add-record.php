@@ -88,22 +88,22 @@ function getCat(val) {
       <?php include("includes/sidebar.php");?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Register Complaint</h3>
+          	<h3><i class="fa fa-angle-right"></i> Add Product</h3>
           	
             <!-- BASIC FORM ELELEMNTS -->
 <form runat="server">
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">Product Id</label>
     <div class="col-sm-4">
-    <input type="text" name="pid" required="required" value="" class="form-control" required>
+    <input type="text" name="pid" required="required" value="" class="form-control" >
     </div>
     </div>
     <br><br>
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">Product Image</label>
     <div class="col-sm-4">
-    <input type='file' onchange="readURL(this);" />
-        <img id="blah"  width="600" height="600" src="#" alt="your image" />
+    <input type='file' onchange="readURL(this);" name="image"/>
+		<img id="blah" width="600" height="400" src="img/tp.png" alt="" />
     </div>
     </div>
     <div></div>
