@@ -72,18 +72,6 @@ else{
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
-
-    <script id="source" language="javascript" type="text/javascript">
-    $(document).ready(function(){
-    $('input.typeahead').typeahead({
-        name: 'p_id',
-        remote:'gey_image.php?id=%QUERY',
-        limit : 40
-      });
-    });
-    </script>
-
-    <!--script for this page-->
   </body>
 </html>
 <?php } ?>
