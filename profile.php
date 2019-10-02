@@ -12,13 +12,8 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
 {
 $fname=$_POST['fullname'];
-$contactno=$_POST['contactno'];
-$address=$_POST['address'];
-$state=$_POST['state'];
-$country=$_POST['country'];
-$pincode=$_POST['pincode'];
 //$query=mysqli_query($con,"update users set fullName='$fname',contactNo='$contactno',address='$address',State='$state',country='$country',pincode='$pincode' where userEmail='".$_SESSION['login']."'");
-$sql = "update users set fullName='$fname',contactNo='$contactno',address='$address',State='$state',country='$country',pincode='$pincode' where userEmail='".$_SESSION['login']."'";
+$sql = "update users set fullName='$fname' where userEmail='".$_SESSION['login']."'";
 $query = $dbh->prepare($sql);
 $query = execute();
 
@@ -73,50 +68,44 @@ $query = execute();
                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Well done!</b> <?php echo htmlentities($successmsg);?></div>
                       <?php }?>
-
-   <?php if($errormsg)
+                      <?php if($errormsg)
                       {?>
                       <div class="alert alert-danger alert-dismissable">
- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Oh snap!</b> </b> <?php echo htmlentities($errormsg);?></div>
                       <?php }?>
- <?php $slq1= "select * from users where userEmail='".$_SESSION['login']."'";
+      <?php $slq1= "select * from users where userEmail='".$_SESSION['login']."'";
        $query1 = $dbh->prepare($sql1);
        $query1->execute();
        $results = $query1->fetchAll(PDO::FETCH_OBJ); 
- foreach($results as $result) 
- {
- ?>                     
+  foreach($results as $result) {?>                     
   <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($result->fullName);?>'s Profile</h4>
     <h5><b>Last Updated at :</b>&nbsp;&nbsp;<?php echo htmlentities($result->updationDate);?></h5>
-                      <form class="form-horizontal style-form" method="post" name="profile" >
+    <form class="form-horizontal style-form" method="post" name="profile" >
+    <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Full Name</label>
+    <div class="col-sm-4">
+    <input type="text" name="fullname" required="required" value="<?php echo htmlentities($result->fullName);?>" class="form-control" >
+    </div>
+    <label class="col-sm-2 col-sm-2 control-label">User Email </label>
+    <div class="col-sm-4">
+    <input type="email" name="useremail" required="required" value="<?php echo htmlentities($result->userEmail);?>" class="form-control" readonly>
+    </div>
+    </div>
 
-<div class="form-group">
-<label class="col-sm-2 col-sm-2 control-label">Full Name</label>
-<div class="col-sm-4">
-<input type="text" name="fullname" required="required" value="<?php echo htmlentities($result->fullName);?>" class="form-control" >
- </div>
-<label class="col-sm-2 col-sm-2 control-label">User Email </label>
- <div class="col-sm-4">
-<input type="email" name="useremail" required="required" value="<?php echo htmlentities($result->userEmail);?>" class="form-control" readonly>
-</div>
- </div>
-
-<div class="form-group">
-<label class="col-sm-2 col-sm-2 control-label">User Photo</label>
-<div class="col-sm-4">
-<?php $userphoto=$row['userImage'];
-if($userphoto==""):
-?>
-<img src="userimages/noimage.png" width="256" height="256" >
-<a href="update-image.php">Change Photo</a>
-<?php else:?>
-	<img src="userimages/<?php echo htmlentities($userphoto);?>" width="256" height="256">
-	<a href="update-image.php">Change Photo</a>
-<?php endif;?>
-</div>
-
-</div>
+    <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
+    <div class="col-sm-4">
+    <?php $userphoto=$row['userImage'];
+    if($userphoto==""): ?>
+    <img src="userimages/noimage.png" width="256" height="256" >
+    <a href="update-image.php">Change Photo</a>
+    <?php else:?>
+    <img src="userimages/<?php echo htmlentities($userphoto);?>" width="256" height="256">
+    <a href="update-image.php">Change Photo</a>
+    <?php endif;?>
+    </div>
+    </div>
 
 
 
