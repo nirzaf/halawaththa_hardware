@@ -79,8 +79,6 @@ if(isset($_POST['submit']))
 		            <hr>
 		           </form>	
 		        </div>
-		
-		          <!-- Modal -->
 		           <form class="form-login" name="forgot" method="post">
 		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
