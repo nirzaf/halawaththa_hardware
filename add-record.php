@@ -16,6 +16,11 @@ if(strlen($_SESSION['login'])==0)
       $uid = rand(100, 1000000).time();
      // $uid=$_SESSION['id'];
       $filename = $_FILES["image"]["name"]; // Get the name of the file (including file extension).
+      
+      echo '<script> alert("id number "+"'.$id.'")</script>';
+      echo '<script> alert("uid number "+"'.$uid.'")</script>';
+      echo '<script> alert("filename "+"'.$filename.'")</script>';
+      
       $allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
       $max_filesize = 10485760; // Maximum filesize in BYTES (currently 10.0 MB).
       $upload_path = 'pr_images/'; // The place the files will be uploaded to (currently a 'files' directory).
@@ -34,7 +39,7 @@ if(strlen($_SESSION['login'])==0)
       $filename = rand(100, 1000000).time().$ext;
        // this will give the file current time so avoid files having the same name
       move_uploaded_file($_FILES["image"]["tmp_name"], $upload_path . $filename);
-      
+
       $sql= "insert into tblproducts (id,userId,image) values(':id',':uid',':img')";
       $query = $dbh->prepare($sql);
       $query->bindParam(':id', $id, PDO::PARAM_INT);
