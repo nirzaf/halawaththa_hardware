@@ -12,7 +12,6 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
 {
 $fname=$_POST['fullname'];
-//$query=mysqli_query($con,"update users set fullName='$fname',contactNo='$contactno',address='$address',State='$state',country='$country',pincode='$pincode' where userEmail='".$_SESSION['login']."'");
 $sql = "update users set fullName='$fname' where userEmail='".$_SESSION['login']."'";
 $query = $dbh->prepare($sql);
 $query = execute();
