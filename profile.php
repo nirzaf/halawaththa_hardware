@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 include('includes/config.php');
 if(strlen($_SESSION['login'])==0){ 
 header('location:index.php');
@@ -91,26 +91,25 @@ $query = execute();
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
     <div class="col-sm-4">
-    <?php $userphoto=$row['userImage'];
-    if($userphoto==""): ?>
+    <?php if($result->userImage == ""): ?>
     <img src="userimages/noimage.png" width="256" height="256" >
     <a href="update-image.php">Change Photo</a>
     <?php else:?>
-    <img src="userimages/<?php echo htmlentities($userphoto);?>" width="256" height="256">
+    <img src="userimages/<?php echo htmlentities($result->userImage);?>" width="256" height="256">
     <a href="update-image.php">Change Photo</a>
     <?php endif;?>
     </div>
     </div>
     <?php } ?>
               <div class="form-group">
-              <div class="col-sm-10" style="padding-left:25% ">
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-              </div>
+                <div class="col-sm-10" style="padding-left:25% ">
+                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
               </div>
               </form>
               </div>
-              </div>
-              </div>                     	
+            </div>
+          </div>                     	
 		</section>
     </section>
     <?php include("includes/footer.php");?>
