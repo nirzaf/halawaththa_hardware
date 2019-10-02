@@ -79,38 +79,8 @@ if(isset($_POST['submit']))
 		            <hr>
 		           </form>	
 		        </div>
-		           <form class="form-login" name="forgot" method="post">
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Forgot Password ?</h4>
-		                      </div>
-		                      <div class="modal-body">
-		                          <p>Enter your details below to reset your password.</p>
-<input type="email" name="email" placeholder="Email" autocomplete="off" class="form-control" required><br >
-<input type="text" name="contact" placeholder="contact No" autocomplete="off" class="form-control" required><br>
- <input type="password" class="form-control" placeholder="New Password" id="password" name="password"  required ><br />
-<input type="password" class="form-control unicase-form-control text-input" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" required >
-
-		
-		                      </div>
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="submit" name="change" onclick="return valid();">Submit</button>
-		                      </div>
-		                  </div>
-		              </div>
-		          </div>
-		          <!-- modal -->
-		          </form>
-		
-		      	  	
-	  	
+	  		</div>
 	  	</div>
-	  </div>
-
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -121,7 +91,5 @@ if(isset($_POST['submit']))
     <script>
         $.backstretch("assets/img/login-bg.jpg", {speed: 500});
     </script>
-
-
   </body>
 </html>
