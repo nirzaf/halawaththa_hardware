@@ -15,12 +15,7 @@ if(strlen($_SESSION['login'])==0)
       $id=intval($_POST['pid']);
       $uid = rand(100, 1000000).time();
      // $uid=$_SESSION['id'];
-      $filename = $_FILES["image"]["name"]; // Get the name of the file (including file extension).
-      
-      echo '<script> alert("id number "+"'.$id.'")</script>';
-      echo '<script> alert("uid number "+"'.$uid.'")</script>';
-      echo '<script> alert("filename "+"'.$filename.'")</script>';
-      
+      $filename = $_FILES["image"]["name"]; // Get the name of the file (including file extension).      
       $allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
       $max_filesize = 10485760; // Maximum filesize in BYTES (currently 10.0 MB).
       $upload_path = 'pr_images/'; // The place the files will be uploaded to (currently a 'files' directory).
@@ -40,19 +35,17 @@ if(strlen($_SESSION['login'])==0)
        // this will give the file current time so avoid files having the same name
       move_uploaded_file($_FILES["image"]["tmp_name"], $upload_path . $filename);
 
-      $sql= "insert into tblproducts (id,userId,image) values(':id',':uid',':img')";
+      $sql= "INSERT INTO tblproducts (id,userId,image) VALUES(:id,:uid,:img)";
       $query = $dbh->prepare($sql);
       $query->bindParam(':id', $id, PDO::PARAM_INT);
       $query->bindParam(':uid', $uid, PDO::PARAM_STR);
       $query->bindParam(':img', $filename, PDO::PARAM_STR);
       $query->execute();
-      // code for show last added id number
-      $lastInsertId = $dbh->lastInsertId();
-      if ($lastInsertId) {
-          echo '<script> alert("Your product has been successfully added with id number "+"'.$lastInsertId.'")</script>';
-      } else {
-          echo "<script>alert('Oops! Please try again')</script>";
+      if ($query->rowCount() > 0) 
+      {
+        echo "<script> alert('Added Successfully')</script>";
       }
+        
   }catch(PDOException $ex)
   {
     throw $ex;
@@ -90,15 +83,19 @@ if(strlen($_SESSION['login'])==0)
     </script>
   </head>
   <body>
+  <div id="ex1" class="modal">
+      <p>Successfully Added</p>
+      <a href="#" rel="modal:close">Ok</a>
+  </div>
   <section id="container" >
      <?php include("includes/header.php");?>
       <?php include("includes/sidebar.php");?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Add Product</h3>
-          	
+          <h3><i class="fa fa-angle-right"></i> Add Product</h3>
+
             <!-- BASIC FORM ELELEMNTS -->
-<form role="form" method="POST" action="add-record.php" enctype="multipart/form-data">
+    <form role="form" method="POST" action="add-record.php" enctype="multipart/form-data">
     <div class="form-group">
     <label class="col-sm-2 col-sm-2 control-label">Product Id</label>
     <div class="col-sm-4">
@@ -121,7 +118,7 @@ if(strlen($_SESSION['login'])==0)
     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </div>
     </div>
-</form>          	
+</form> 
 		</section>
     </section>
     <?php include("includes/footer.php");?>
@@ -133,7 +130,12 @@ if(strlen($_SESSION['login'])==0)
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>

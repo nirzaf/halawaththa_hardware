@@ -4,33 +4,32 @@ error_reporting(0);
 include("includes/config.php");
 if(isset($_POST['submit']))
 {
-$ret=mysqli_query($con,"SELECT * FROM users WHERE userEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'");
-$num=mysqli_fetch_array($ret);
-if($num>0)
+$sql="SELECT * FROM users WHERE userEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'";
+$query = $dbh->prepare($sql);
+$query->execute();
+if($query>0)
 {
-$extra="dashboard.php";//
-$_SESSION['login']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uip=$_SERVER['REMOTE_ADDR'];
-$status=1;
-$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
+	$extra="dashboard.php";//
+	$_SESSION['login']=$_POST['username'];
+	$_SESSION['id']=$num['id'];
+	$host=$_SERVER['HTTP_HOST'];
+	$uip=$_SERVER['REMOTE_ADDR'];
+	$status=1;
+	$log="insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')";
+	$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+	header("location:http://$host$uri/$extra");
+	exit();
 }
 else
 {
-$_SESSION['login']=$_POST['username'];	
-$uip=$_SERVER['REMOTE_ADDR'];
-$status=0;
-mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
-$errormsg="Invalid username or password";
-$extra="login.php";
-
+	$_SESSION['login']=$_POST['username'];	
+	$uip=$_SERVER['REMOTE_ADDR'];
+	$status=0;
+	$log = "insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')";
+	$errormsg="Invalid username or password";
+	$extra="login.php";
 }
 }
-
 
 
 if(isset($_POST['change']))
@@ -112,21 +111,13 @@ echo htmlentities($msg);
 		            <br>
 		            <input type="password" class="form-control" name="password" required placeholder="Password">
 		            <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-		
-		                </span>
+		                <!-- <span class="pull-right">
+		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>		
+		                </span> -->
 		            </label>
 		            <button class="btn btn-theme btn-block" name="submit" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
 		            <hr>
-		           </form>
-		            <div class="registration">
-		                Don't have an account yet?<br/>
-		                <a class="" href="registration.php">
-		                    Create an account
-		                </a>
-		            </div>
-		
+		           </form>	
 		        </div>
 		
 		          <!-- Modal -->
