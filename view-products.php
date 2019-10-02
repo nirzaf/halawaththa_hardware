@@ -41,10 +41,15 @@ else{
           	<h3>View Products by Id </h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
-                      <div class="content-panel">
+              <div class="content-panel">
 <form action="" method="POST">
 Enter Product Id: 
 <input type="text" name="search_entered" value=''/> <br><br>
+<div class="col-sm-4">
+    <input type='file' name="image" id="image" onchange="readURL(this);"/>
+		<img id="blah" width="600" height="400" src="img/tp.png" alt="" />
+</div>
+
 <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
 <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
 </div>
