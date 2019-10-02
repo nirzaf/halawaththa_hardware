@@ -31,86 +31,31 @@ else{ ?>
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="assets/js/chart-master/Chart.js"></script>
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
-
-  <section id="container" >
+<section id="container" >
 <?php include("includes/header.php");?>
 <?php include("includes/sidebar.php");?>
       <section id="main-content">
           <section class="wrapper">
-
               <div class="row">
-                  <div class="col-lg-9 main-chart">
-                  
-                  
+                  <div class="col-lg-9 main-chart">                 
                   	<div class="col-md-2 col-sm-2 box0">
-                        <div>
-                 
-                  </div></div>
-
-
-
-                  	
+                        <div>                
+                      </div></div>                  	
                   		<div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_news"></span>
-                                <?php 
-                   
+                  		<div class="box1">
+					  			    <span class="li_news"></span>
+                                <?php                   
 $rt = mysqli_query($con,"SELECT * FROM tblcomplaints where userId='".$_SESSION['id']."' and status is null");
 $num1 = mysqli_num_rows($rt);
 {?>
 					  			<h3><?php echo htmlentities($num1);?></h3>
                   			</div>
-					  			<p><?php echo htmlentities($num1);?> Complaints not Process yet</p>
+					  			<p><?php echo htmlentities($num1);?> Total Added Products</p>
                   		</div>
-                      <?php }?>
-
-
-                      <div class="col-md-2 col-sm-2 box0">
-                        <div class="box1">
-                  <span class="li_news"></span>
-                    <?php 
-  $status="in Process";                   
-$rt = mysqli_query($con,"SELECT * FROM tblcomplaints where userId='".$_SESSION['id']."' and  status='$status'");
-$num1 = mysqli_num_rows($rt);
-{?>
-                  <h3><?php echo htmlentities($num1);?></h3>
-                        </div>
-                  <p><?php echo htmlentities($num1);?> Complaints Status in process</p>
-                      </div>
-  <?php }?>
-
-                      <div class="col-md-2 col-sm-2 box0">
-                        <div class="box1">
-                  <span class="li_news"></span>
-                       <?php 
-  $status="closed";                   
-$rt = mysqli_query($con,"SELECT * FROM tblcomplaints where userId='".$_SESSION['id']."' and  status='$status'");
-$num1 = mysqli_num_rows($rt);
-{?>
-                  <h3><?php echo htmlentities($num1);?></h3>
-                        </div>
-                  <p><?php echo htmlentities($num1);?> Complaint has been closed</p>
-                      </div>
-
-<?php }?>
-                  	
-                  	
-                  	</div><!-- /row mt -->	
-                  
-                      
-                     
-                    				
-				
-				
+                      <?php }?>				
           </section>
       </section>
 <?php include("includes/footer.php");?>
