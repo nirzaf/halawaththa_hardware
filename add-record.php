@@ -82,10 +82,6 @@ if(strlen($_SESSION['login'])==0)
     </script>
   </head>
   <body>
-  <div id="ex1" class="modal">
-      <p>Successfully Added</p>
-      <a href="#" rel="modal:close">Ok</a>
-  </div>
   <section id="container" >
      <?php include("includes/header.php");?>
       <?php include("includes/sidebar.php");?>
