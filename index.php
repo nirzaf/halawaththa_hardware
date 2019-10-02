@@ -56,27 +56,24 @@ if(isset($_POST['submit']))
   <body>
 	  <div id="login-page">
 	  	<div class="container">
-	  		<h3 align="center" style="color:#ffff">Inventory Management System</h3>
-	<hr />
+	  		<h3 align="center" style="color:#fffff">Inventory Management System</h3>
+	<hr/>
 		      <form class="form-login" name="login" method="post">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <p style="padding-left:4%; padding-top:2%;  color:red">
 		        	<?php if($errormsg){
-echo htmlentities($errormsg);
+					echo htmlentities($errormsg);
 		        		}?></p>
 
 		        		<p style="padding-left:4%; padding-top:2%;  color:green">
 		        	<?php if($msg){
-echo htmlentities($msg);
+					echo htmlentities($msg);
 		        		}?></p>
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" name="username" placeholder="User ID"  required autofocus>
 		            <br>
 		            <input type="password" class="form-control" name="password" required placeholder="Password">
 		            <label class="checkbox">
-		                <!-- <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>		
-		                </span> -->
 		            </label>
 		            <button class="btn btn-theme btn-block" name="submit" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
 		            <hr>
