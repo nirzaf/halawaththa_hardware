@@ -38,7 +38,7 @@ else{
               <div class="content-panel">
   <form action="" method="POST">
   Enter Product Id: 
-    <input type="text" name="search_entered" value=''/> <br><br>
+    <input type="text" name="search_entered" placeholder="Enter product id"/> <br><br>
     <div class="col-sm-4">
     <input type='file' name="image" id="image" onchange="readURL(this);"/>
     <img id="blah" width="600" height="400" src="img/tp.png" alt="" />
