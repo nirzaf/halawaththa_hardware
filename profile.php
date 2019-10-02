@@ -51,13 +51,12 @@ $query = execute();
       <?php include("includes/sidebar.php");?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Profile info</h3>
-          	
+          	<h3><i class="fa fa-angle-right"></i> Profile info</h3>        	
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
           		<div class="col-lg-12">
                   <div class="form-panel">
-                      <?php if($successmsg)
+                      <?php if($successmsg!=null)
                       {?>
                       <div class="alert alert-success alert-dismissable">
                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
