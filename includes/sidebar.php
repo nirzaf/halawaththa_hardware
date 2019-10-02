@@ -3,12 +3,15 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <?php $query=mysqli_query($con,"select fullName,userImage from users where userEmail='".$_SESSION['login']."'");
-				  while($row=mysqli_fetch_array($query)) 
+                  <?php $sql="select fullName,userImage from users where userEmail='".$_SESSION['login']."'";
+                  $query = $dbh->prepare($sql);
+                  $query->execute();
+                  $results= $query->fetchAll(PDO::FETCH_OBJ);
+				  foreach($results as $result) 
 				  {
 				   ?> 
 				  <p class="centered"><a href="profile.php">
-				  <?php $userphoto=$row['userImage'];
+				  <?php $userphoto=$result->userImage;
 				  if($userphoto==""):
 				  ?>
 				  <img src="userimages/noimage.png"  class="img-circle" width="70" height="70" >
@@ -17,7 +20,7 @@
 				  <?php endif;?>
 				  </a>
                   </p>
-                  <h5 class="centered"><?php echo htmlentities($row['fullName']);?></h5>
+                  <h5 class="centered"><?php echo htmlentities($result->fullName);?></h5>
                   <?php } ?>
                     
                   <li class="mt">

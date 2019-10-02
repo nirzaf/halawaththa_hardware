@@ -17,6 +17,5 @@ if(!empty($_POST["catid"]))
   <?php
  }
 }
-
 }
 ?>
