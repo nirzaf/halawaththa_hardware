@@ -44,11 +44,8 @@ $query = execute();
     <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-  
   </head>
-
   <body>
-
   <section id="container" >
      <?php include("includes/header.php");?>
       <?php include("includes/sidebar.php");?>
@@ -60,8 +57,6 @@ $query = execute();
           	<div class="row mt">
           		<div class="col-lg-12">
                   <div class="form-panel">
-                  	
-
                       <?php if($successmsg)
                       {?>
                       <div class="alert alert-success alert-dismissable">
