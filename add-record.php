@@ -109,15 +109,14 @@ function getCat(val) {
     <div></div>
     <div></div>
     <div></div>
-
-                          <div class="form-group">
-                           <div class="col-sm-10" style="padding-left:25% ">
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </div>
-            </div>
+    <div class="form-group">
+    <div class="col-sm-10" style="padding-left:25% ">
+    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
 </form>          	
 		</section>
-      </section>
+    </section>
     <?php include("includes/footer.php");?>
   </section>
 
@@ -145,14 +144,9 @@ function getCat(val) {
 	
 	<script type="text/javascript" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/date.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
-	
+	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>	
 	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-	
-	
-	<script src="assets/js/form-component.js"></script>    
-    
-    
+	<script src="assets/js/form-component.js"></script>       
   <script>
       //custom select box
 
