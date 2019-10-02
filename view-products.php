@@ -12,7 +12,7 @@ else{
       $sql = "SELECT image FROM tblproducts WHERE id=:id";
       $query = $dbh->prepare($sql);
       $query->bindParam(':id', $id, PDO::PARAM_INT);
-      $query = $execute();
+      $query->execute();
       $results = $query->fetchAll(PDO::FETCH_OBJ);
       foreach ($results as $result) {
           $_SESSION['image'] = $result;
@@ -46,12 +46,11 @@ else{
           	<h3>View Products by Id </h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
-              <div class="content-panel">
-  <form role="form" action="view-products.php" method="POST">
+    <form role="form" action="view-products.php" method="POST">
     <label>Enter Product Id:</label> 
     <input type="text" name="p_id" placeholder="Enter product id"/> <br><br>
     <div class="col-sm-4">
-    <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
+    <div class="col-sm-4" style="padding-left:170px;">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div> 
     <img id="blah" width="600" height="400" src="<?php if ($_SESSION['image']!=null) {
@@ -61,7 +60,6 @@ else{
             } ?>" alt="" />
   </div>
   </form>               
-        </div><!-- /content-panel -->
         </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
 		</section><! --/wrapper -->
