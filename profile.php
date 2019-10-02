@@ -102,18 +102,6 @@ $query = execute();
 </div>
  </div>
 
-
-<div class="form-group">
-<label class="col-sm-2 col-sm-2 control-label">Contact</label>
- <div class="col-sm-4">
-<input type="text" name="contactno" required="required" value="<?php echo htmlentities($result->contactNo);?>" class="form-control">
-</div>
-<label class="col-sm-2 col-sm-2 control-label">Address </label>
-<div class="col-sm-4">
-<textarea  name="address" required="required" class="form-control"><?php echo htmlentities($result->address);?></textarea>
-</div>
-</div>
-
 <div class="form-group">
 <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
 <div class="col-sm-4">
