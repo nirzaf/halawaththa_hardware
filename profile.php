@@ -16,7 +16,6 @@ $fname=$_POST['fullname'];
 $sql = "update users set fullName='$fname' where userEmail='".$_SESSION['login']."'";
 $query = $dbh->prepare($sql);
 $query = execute();
-
   if($query->rowCount()>0){
     $successmsg="Profile Successfully Updated !!";
   }else{
