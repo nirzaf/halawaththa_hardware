@@ -49,7 +49,7 @@ else{ ?>
                   		<div class="box1">
 					  			    <span class="li_news"></span>
                                 <?php                   
-$rt = "SELECT * FROM tblproducts where userId='".$_SESSION['id']."'";
+$rt = "SELECT * FROM tblproducts";
 $query = $dbh->prepare($rt);
 $query->execute();
 $num1 = $query->rowCount();
