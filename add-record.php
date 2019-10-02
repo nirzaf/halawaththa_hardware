@@ -44,8 +44,7 @@ if(strlen($_SESSION['login'])==0)
       if ($query->rowCount() > 0) 
       {
         echo "<script> alert('Added Successfully')</script>";
-      }
-        
+      }       
   }catch(PDOException $ex)
   {
     throw $ex;

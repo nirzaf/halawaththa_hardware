@@ -42,7 +42,7 @@ else{
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
                       <div class="content-panel">
-                      <form action="" method="POST">
+<form action="" method="POST">
 Enter Product Id: 
 <input type="text" name="search_entered" value=''/> <br><br>
 <div class="col-sm-10" style="padding-left:190px; padding-top:20px">
