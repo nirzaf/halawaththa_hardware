@@ -40,14 +40,11 @@ if(isset($_POST['submit']))
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
     <title>CMS | User Login</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />      
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
@@ -56,8 +53,7 @@ if(isset($_POST['submit']))
   <body>
 	  <div id="login-page">
 	  	<div class="container">
-	  		<h3 align="center" style="color:#fffff">Inventory Management System</h3>
-	<hr/>
+	  		<h3 align="center" style="color:#fffff">Inventory Management System</h3><hr/>
 		      <form class="form-login" name="login" method="post">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <p style="padding-left:4%; padding-top:2%;  color:red">
