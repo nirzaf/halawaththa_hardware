@@ -36,8 +36,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="profile.php">Profile</a></li>
-                          <li><a  href="change-password.php">Change Password</a></li>
-                        
+                          <li><a  href="change-password.php">Change Password</a></li>                       
                       </ul>
                   </li>
                   <li class="sub-menu">
