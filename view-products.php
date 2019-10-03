@@ -9,6 +9,7 @@ header('location:index.php');
 else{
   if (isset($_POST['submit'])) {
       $id = intval($_POST['p_id']);
+      $_SESSION['image'] = null;
       $sql = "SELECT image FROM tblproducts WHERE id=:id LIMIT 1";
       $query = $dbh->prepare($sql);
       $query->bindParam(':id', $id, PDO::PARAM_INT);
@@ -53,7 +54,7 @@ else{
     <div class="col-sm-4" style="padding-left:170px;">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div> 
-    <img id="blah" width="600" height="400" src="<?php if($_SESSION['image']) {echo 'pr_images/'.$_SESSION['image'];} else {echo 'img/tp.png';}?>" alt="Image Not Found" />
+    <img id="blah" width="600" height="400" src="<?php if($_SESSION['image']) {echo 'pr_images/'.$_SESSION['image'];} else {echo 'img/tp.png';}?>" alt="Enter Product Id" />
   </div>
   </form>               
         </div><!-- /col-lg-4 -->			

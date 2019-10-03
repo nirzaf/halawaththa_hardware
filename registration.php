@@ -55,8 +55,6 @@ error:function (){}
 		        	<?php if($msg){
 echo htmlentities($msg);
 		        		}?>
-
-
 		        </p>
 		        <div class="login-wrap">
 		         <input type="text" class="form-control" placeholder="Full Name" name="fullname" required="required" autofocus>

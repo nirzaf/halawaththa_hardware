@@ -53,7 +53,8 @@ if(isset($_POST['submit']))
   <body>
 	  <div id="login-page">
 	  	<div class="container">
-	  		<h3 align="center" style="color:#fffff">Inventory Management System</h3><hr/>
+			  <h3 align="center" style="color:bisque; font-weight:bold">Inventory Management System</h3>
+			  <h4 align="center" style="color:bisque; font-weight:bold">Halawatha Hardware (Pvt) Ltd.</h4><hr/>
 		      <form class="form-login" name="login" method="post">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <p style="padding-left:4%; padding-top:2%;  color:red">
@@ -65,7 +66,7 @@ if(isset($_POST['submit']))
 		        	<?php if($msg){
 					echo htmlentities($msg);
 		        		}?></p>
-		        	div class="login-wrap">
+		        	<div class="login-wrap">
 		            <input type="text" class="form-control" name="username" placeholder="User ID"  required autofocus>
 		            <br>
 		            <input type="password" class="form-control" name="password" required placeholder="Password">
@@ -84,7 +85,7 @@ if(isset($_POST['submit']))
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
     <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
     <script>
-        $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+        $.backstretch("assets/img/login-bg.jpg", {speed: 100});
     </script>
   </body>
 </html>
