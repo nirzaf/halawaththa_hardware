@@ -8,8 +8,14 @@ if(isset($_POST['submit']))
 	$password=md5($_POST['password']);
 	$contactno=$_POST['contactno'];
 	$status=1;
-	$query=mysqli_query($con,"insert into users(fullName,userEmail,password,contactNo,status) values('$fullname','$email','$password','$contactno','$status')");
-	$msg="Registration successfull. Now You can login !";
+	$sql= "insert into users(fullName,userEmail,password,contactNo,status) values('$fullname','$email','$password','$contactno','$status')";
+	$query = $dbh->prepare($sql);
+	$query->execute();
+    if ($query->rowCount()>0) {
+        $msg="Registration successfull. Now You can login !";
+    }else{
+		$msg="Oops.. Something went wrong..! please try again !";
+	}
 }
 ?>
 

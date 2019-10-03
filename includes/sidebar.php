@@ -55,9 +55,9 @@
                       </a>
                     </li>  
                     <li class="sub-menu">
-                      <a href="change-password.php" >
-                          <i class="fa fa-lock"></i>
-                          <span>Change Password</span>
+                      <a href="registration.php" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Create User</span>
                       </a>
                     </li>                
               </ul>

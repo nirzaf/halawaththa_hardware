@@ -65,6 +65,7 @@ $query = execute();
                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Oh snap!</b> </b> <?php echo htmlentities($errormsg);?></div>
                       <?php }?>
+    
     <?php $sql1= "select * from users where userEmail='".$_SESSION['login']."'";
     $query1 = $dbh->prepare($sql1);
     $query1->execute();

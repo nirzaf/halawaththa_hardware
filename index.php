@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 	$sql="SELECT * FROM users WHERE userEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'";
 	$query = $dbh->prepare($sql);
 	$query->execute();
-	if($query>0)
+	if($query->rowCount()>0)
 	{
 		$extra="dashboard.php";
 		$_SESSION['login']=$_POST['username'];

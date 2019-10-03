@@ -9,6 +9,7 @@ $query = $dbh->prepare($sql);
 $query->execute();
 if ($query->rowCount()>0) {
     session_unset();
+    session_destroy();
 }else{
     return;
 }
