@@ -23,37 +23,43 @@
                   <h5 class="centered"><?php echo htmlentities($result->fullName);?></h5>
                   <?php } ?>
                     
-                  <li class="mt">
+                    <li class="mt">
                       <a href="dashboard.php">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
+                    </li>
+                    <li class="sub-menu">
                       <a href="add-record.php" >
                           <i class="fa fa-book"></i>
                           <span>Add Product</span>
                       </a>
                     </li>
-                  </li>
-                  <li class="sub-menu">
+                    </li>
+                    <li class="sub-menu">
                       <a href="view-products.php" >
                           <i class="fa fa-tasks"></i>
                           <span>Retreive Product Info</span>
                       </a>                      
-                  </li>
-                  <li class="sub-menu">
+                    </li>
+                    <li class="sub-menu">
                       <a href="profile.php" >
                           <i class="fa fa-user"></i>
                           <span>Profile</span>
                       </a>
                     </li>
-                  <li class="sub-menu">
+                    <li class="sub-menu">
                       <a href="change-password.php" >
                           <i class="fa fa-lock"></i>
                           <span>Change Password</span>
                       </a>
-                    </li>             
+                    </li>  
+                    <li class="sub-menu">
+                      <a href="change-password.php" >
+                          <i class="fa fa-lock"></i>
+                          <span>Change Password</span>
+                      </a>
+                    </li>                
               </ul>
               <!-- sidebar menu end-->
           </div>
