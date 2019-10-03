@@ -1,4 +1,4 @@
-		<header class="header black-bg">
+		<header class="header">
             <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
