@@ -1,13 +1,13 @@
 <?php
-define('DB_HOST','sql308.unaux.com');
-define('DB_USER','unaux_24579808');
-define('DB_PASS' ,'fvxkehh');
-define('DB_NAME', 'unaux_24579808_halawatha');
+// define('DB_HOST','sql308.unaux.com');
+// define('DB_USER','unaux_24579808');
+// define('DB_PASS' ,'fvxkehh');
+// define('DB_NAME', 'unaux_24579808_halawatha');
 
 define('DB_HOST','localhost');
 define('DB_USER','root');
-define('DB_PASS' ,'fvxkehh');
-define('DB_NAME', 'unaux_24579808_halawatha');
+define('DB_PASS' ,'');
+define('DB_NAME', 'cms');
 
 try
 {
