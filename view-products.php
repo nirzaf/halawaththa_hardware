@@ -54,7 +54,7 @@ else{
     <div class="col-sm-4" style="padding-left:170px;">
     <input type="submit" name="submit" value="Search" class="btn btn-primary"/><br><br>
     </div> 
-    <img id="blah" width="600" height="400" src="<?php if($_SESSION['image']) {echo 'pr_images/'.$_SESSION['image'];} else {echo 'img/tp.png';}?>" alt="Enter Product Id" />
+    <img id="blah" width="100%" height="100%" src="<?php if($_SESSION['image']) {echo 'pr_images/'.$_SESSION['image'];} else {echo 'img/tp.png';}?>" alt="Enter Product Id" />
   </div>
   </form>               
         </div><!-- /col-lg-4 -->			

@@ -59,7 +59,9 @@
                           <i class="fa fa-cogs"></i>
                           <span>Create User</span>
                       </a>
-                    </li>                
+                    </li>
+                    <script type="text/javascript">ndom'; 
+                    </script>                
               </ul>
               <!-- sidebar menu end-->
           </div>
