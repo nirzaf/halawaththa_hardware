@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 include('includes/config.php');
 if(strlen($_SESSION['login'])==0)
   { 
@@ -32,8 +32,10 @@ $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["image"]["tmp_name"],"userimages/".$imgnewfile);
 // Query for insertion data into database
-$query=mysqli_query($con,"update users set userImage='$imgnewfile' where userEmail='".$_SESSION['login']."'");
-if($query)
+$sql = "update users set userImage='$imgnewfile' where userEmail='".$_SESSION['login']."'";
+$query= $dbh->prepare($sql);
+$query->execute();
+if($query->rowCount() > 0)
 {
 $successmsg="Profile photo Successfully !!";
 }
@@ -65,7 +67,7 @@ $errormsg="Profile photo not updated !!";
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
   </head>
-  
+
   <body>
   <section id="container" >
      <?php include("includes/header.php");?>
@@ -93,25 +95,22 @@ $errormsg="Profile photo not updated !!";
  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <b>Oh snap!</b> </b> <?php echo htmlentities($errormsg);?></div>
                       <?php }?>
- <?php $query=mysqli_query($con,"select * from users where userEmail='".$_SESSION['login']."'");
- while($row=mysqli_fetch_array($query)) 
+ <?php  $sql1="select * from users where userEmail='".$_SESSION['login']."'";
+        $query1=$dbh->prepare($sql1);
+        $query1->execute();
+        $results= $query1->fetchAll(PDO::FETCH_OBJ);
+
+ foreach($results as $result) 
  {
  ?>                     
 
-  <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($row['fullName']);?>'s Profile</h4>
+  <h4 class="mb"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo htmlentities($result->fullName);?>'s Profile</h4>
     
-                      <form class="form-horizontal style-form" enctype="multipart/form-data"  method="post" name="profile" >
-
-
-
-
-
-
-
+<form class="form-horizontal style-form" enctype="multipart/form-data"  method="post" name="profile" >
 <div class="form-group">
 <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
 <div class="col-sm-4">
-<?php $userphoto=$row['userImage'];
+<?php $userphoto=$result->userImage;
 if($userphoto==""):
 ?>
 <img src="userimages/noimage.png" width="256" height="256" >
@@ -128,15 +127,7 @@ if($userphoto==""):
 <div class="col-sm-4">
 <input type="file" name="image"  required />
 </div>
-
 </div>
-
-
-
-
-
-
-
 <?php } ?>
 
                           <div class="form-group">
@@ -144,14 +135,10 @@ if($userphoto==""):
 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 </div>
 </div>
-
                           </form>
                           </div>
                           </div>
-                          </div>
-                          
-          	
-          	
+                          </div>        	
 		</section>
       </section>
     <?php include("includes/footer.php");?>
